@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Main {
 
     public static void main(String[] args) {
-        // the following is the same sample program shown in ex 8.13 description
+         // the following is the same sample program shown in ex 8.13 description
         
         LicensePlate li1 = new LicensePlate("FI", "ABC-123");
         LicensePlate li2 = new LicensePlate("FI", "UXE-465");
