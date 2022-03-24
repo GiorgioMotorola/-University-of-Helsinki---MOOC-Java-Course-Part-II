@@ -13,5 +13,24 @@ public class BooksFromFile {
         // test your method here
 
     }
+    
+    public static List<Book> readBooks(String file) {
+        List<Book> book = new ArrayList<>();
+        
+        try {
+            Files.lines(Paths.get(file))
+                    .map(row -> row.split(","))
+                    .filter(parts -> parts.length >=4)
+                    .map(parts -> new Book(parts[0], Integer.valueOf(parts[1]), Integer.valueOf(parts[2]), parts[3])) 
+                    .forEach(Book -> book.add(Book));
+            
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+        
+        
+        return book;
+    }
 
 }

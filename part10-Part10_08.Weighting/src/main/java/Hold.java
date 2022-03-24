@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 
 public class Hold {
@@ -21,24 +20,21 @@ public class Hold {
     }
 
     public int totalWeight() {
-        int summa = 0;
-        int indeksi = 0;
-        while (indeksi < this.suitcases.size()) {
-        summa += this.suitcases.get(indeksi).totalWeight();
-        indeksi++;
-        }
-        return summa;
+        int sum = 0;
+        sum = suitcases.stream()
+                .map(suitcases -> suitcases.totalWeight())
+                .reduce(0, (a, b) -> a + b);
+
+        return sum;
     }
 
     public void printItems() {
-        int indeksi = 0;
-        while (indeksi < this.suitcases.size()) {
-        this.suitcases.get(indeksi).printItems();
-        indeksi++;
-        }
+        suitcases.stream()
+                .forEach(Item -> Item.printItems());
     }
 
-    @Override
+
+@Override
     public String toString() {
         if (this.suitcases.isEmpty()) {
             return "no suitcases (0 kg)";
