@@ -10,7 +10,7 @@ import java.util.List;
 
 public class TodoDao {
 
-    private String databasePath;
+   private String databasePath;
 
     public TodoDao(String databasePath) {
         this.databasePath = databasePath;
